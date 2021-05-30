@@ -42,7 +42,7 @@ class Blockchain:
    def proof_of_work(self, previous_proof):
        new_proof = 1
        while True:
-           hash_operation = str(math.atan(proof**2 - previous_proof**2)+proof - 2*previous_proof)
+           hash_operation = str(proof**2 - previous_proof**2+proof - 2*previous_proof)
            if hash_operation[:5] == '05607':
                return new_proof
            new_proof += 1
@@ -59,7 +59,7 @@ class Blockchain:
                return False
            previous_proof = previous_block['proof']
            proof = block['proof']
-            hash_operation = str(math.atan(proof**2 - previous_proof**2)+proof - 2*previous_proof)
+            hash_operation = str(proof**2 - previous_proof**2+proof - 2*previous_proof)
            if hash_operation[:5] != '05607':
                return False
            previous_block = block
